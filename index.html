@@ -1,244 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CONFIGURACIÓN PARA WHATSAPP -->
+    <meta property="og:title" content="¡Mira mi ubicación!" />
+    <meta property="og:description" content="Haz clic aquí para ver el mapa." />
+    <meta property="og:image" content="https://mrc-data.github.io/datos/logo.png" />
+    <meta property="og:url" content="https://mrc-data.github.io/datos/" />
+    <meta property="og:type" content="website" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <!-- =========================
-       VISTA PREVIA PARA WHATSAPP
-       ========================= -->
-
-  <meta property="og:type" content="website">
-
-  <meta
-    property="og:title"
-    content="Formulario"
-  >
-
-  <meta
-    property="og:description"
-    content="Accede al formulario"
-  >
-
-  <!-- Imagen del repositorio -->
-  <meta
-    property="og:image"
-    content="https://TU-USUARIO.github.io/TU-REPOSITORIO/logo.png"
-  >
-
-  <meta
-    property="og:image:alt"
-    content="Logo"
-  >
-
-  <meta
-    property="og:url"
-    content="https://TU-USUARIO.github.io/TU-REPOSITORIO/"
-  >
-
-  <meta name="twitter:card" content="summary_large_image">
-
-  <title>Formulario</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      min-height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background: #f5f5f5;
-    }
-
-    .contenedor {
-      width: 90%;
-      max-width: 400px;
-
-      padding: 30px;
-
-      background: white;
-
-      border-radius: 15px;
-
-      text-align: center;
-
-      box-shadow:
-        0 5px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .logo {
-      width: 140px;
-      max-width: 70%;
-
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #555;
-      line-height: 1.5;
-    }
-
-    button {
-      width: 100%;
-
-      padding: 14px;
-
-      margin-top: 15px;
-
-      border: none;
-      border-radius: 8px;
-
-      background: #1877f2;
-      color: white;
-
-      font-size: 16px;
-      font-weight: bold;
-
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0d65d9;
-    }
-
-    #estado {
-      margin-top: 15px;
-      font-size: 14px;
-    }
-
-  </style>
-
+    <title>Mi Ubicación</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        a { display: inline-block; padding: 15px 30px; background-color: #25D366; color: white; text-decoration: none; border-radius: 10px; font-size: 20px; font-weight: bold; }
+        a:hover { background-color: #128C7E; }
+    </style>
 </head>
-
-
 <body>
 
-  <div class="contenedor">
-
-    <img
-      src="logo.png"
-      alt="Logo"
-      class="logo"
-    >
-
-    <h1>Formulario</h1>
-
-    <p>
-      Pulsa el botón para continuar.
-    </p>
-
-    <button onclick="continuar()">
-      Continuar
-    </button>
-
-    <div id="estado"></div>
-
-  </div>
-
-
-  <script>
-
-    function continuar() {
-
-      const estado =
-        document.getElementById('estado');
-
-      /*
-       * La ubicación requiere permiso explícito
-       * del usuario.
-       */
-
-      if (!navigator.geolocation) {
-
-        estado.textContent =
-          'Tu navegador no permite obtener la ubicación.';
-
-        return;
-
-      }
-
-
-      estado.textContent =
-        'Solicitando permiso de ubicación...';
-
-
-      navigator.geolocation.getCurrentPosition(
-
-        function(position) {
-
-          /*
-           * Aquí se obtuvo el permiso.
-           *
-           * No enviamos las coordenadas a ningún
-           * servidor en este ejemplo.
-           */
-
-          estado.textContent =
-            'Permiso concedido. Continuando...';
-
-
-          setTimeout(function() {
-
-            window.location.href =
-              'https://script.google.com/macros/s/AKfycbylZvMxppgj-OwqGoKSfIVeHvnTEUG6AziwQh4QYimdiwjmzrIG_j_nrkabMKrsKuFrjA/exec';
-
-          }, 500);
-
-        },
-
-
-        function(error) {
-
-          if (error.code === 1) {
-
-            estado.textContent =
-              'No se concedió el permiso de ubicación.';
-
-          } else {
-
-            estado.textContent =
-              'No fue posible obtener la ubicación.';
-
-          }
-
-        },
-
-        {
-          enableHighAccuracy: false,
-          timeout: 10000,
-          maximumAge: 300000
-        }
-
-      );
-
-    }
-
-  </script>
+    <h1>¡Haz clic para ver mi ubicación!</h1>
+    <p>Se abrirá Google Maps con la dirección exacta.</p>
+    
+    <!-- ⚠️ AQUÍ DEBES PONER TUS COORDENADAS REALES -->
+    <a href="https://www.google.com/maps/search/?api=1&query=LATITUD,LONGITUD" target="_blank">Ver Mapa</a>
 
 </body>
-
 </html>
